@@ -22,7 +22,7 @@ router.delete('/deleteMobile/:mobileId',mobileController.deleteMobile);
 router.put('/updateMobile/:mobileId',mobileController.updateMobile);
 
 /**Update Mobileshop data status*/
-router.put('/mobilestatus/:mobileId',mobileController.changeMobilestatus);
+router.put('/mobilestatus/:mobileId',mobileController.manageProductStatus);
 
 
 module.exports = router;

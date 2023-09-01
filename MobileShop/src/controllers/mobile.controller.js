@@ -77,40 +77,29 @@ const updateMobile = async (req, res) => {
   }
 };
 
-/**Update Mobile data status id */
-const changeMobilestatus = async (req, res) => {
-  try {
-    const mobileId = req.params.mobileId;
-    const mobileExists = await mobileService.getMobileId(mobileId);
+/**Update Mobile data status id
+ * show is_active product status true and false
+ */
 
-    if (mobileExists.is_active == true) {
-      throw new Error(
-        await mobileService.mobileStatus(mobileExists, {
-          $set: {
-            is_active: false,
-          },
-        })
-      );
-    } else {
-      throw new Error(
-        await mobileService.mobileStatus(mobileExists, {
-          $set: {
-            is_active: true,
-          },
-        })
-      );
-    }
-    
+const manageProductStatus = async (req, res) => {
+  try {
+    const manageStatus = await mobileService.manageProductStatus(
+      req.params.mobileId
+    );
+    let resMessage = manageStatus.is_active
+      ? "Mobile can enable to sale."
+      : "Mobile can not enable to sale";
 
     res.status(200).json({
       success: true,
-      message: "mobile Id Update succesfully!",
-      is_active: `${mobileExists.is_active}`,
+      message: resMessage,
+      data: manageStatus,
     });
   } catch (error) {
-    res.status(400).json({
+    res.status(error?.statusCode || 400).json({
       success: false,
-      message: error.message,
+      message:
+        error?.message || "Something went wrong, please try again or later!",
     });
   }
 };
@@ -120,5 +109,5 @@ module.exports = {
   getMobileList,
   deleteMobile,
   updateMobile,
-  changeMobilestatus,
+  manageProductStatus,
 };

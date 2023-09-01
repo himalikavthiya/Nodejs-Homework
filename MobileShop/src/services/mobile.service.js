@@ -12,29 +12,37 @@ const getMobile = async (req, res) => {
 
 /**Get mobile Id */
 const getMobileId = async (mobileId) => {
-    return Mobile.findById(mobileId);
-  };
+   return Mobile.findById(mobileId);
+};
 
 /**Delete Mobile data */
 const deleteMobile = async (mobileId) => {
-    return Mobile.findByIdAndDelete(mobileId);
-  };
+  return Mobile.findByIdAndDelete(mobileId);
+};
 
 /**update Mobile data */
-const updateMobile = async (mobileId,updateBody) => {
-    return Mobile.findByIdAndUpdate(mobileId,{$set:updateBody});
-  };
+const updateMobile = async (mobileId, updateBody) => {
+  return Mobile.findByIdAndUpdate(mobileId, { $set: updateBody });
+};
 
-  /**update Mobile data  status*/
-const mobileStatus = async (mobileEx) => {
-    return Mobile.findByIdAndUpdate(mobileEx,{$set:{is_active:false}});
-  };
+/**update Mobile data  status*/
+const manageProductStatus = async (mobileId) => {
+  const mobileExist = await getMobileId(mobileId);
+  if (!mobileExist) {
+    throw new Error("Mobile not found!");
+  }
+  return Mobile.findByIdAndUpdate(
+    { _id: mobileId },
+    { $set: { is_active: !mobileExist.is_active } },
+    { new: true }
+  );
+};
 
-  module.exports = {
+module.exports = {
   createMobile,
   getMobile,
   getMobileId,
   deleteMobile,
   updateMobile,
-  mobileStatus
+  manageProductStatus,
 };

@@ -11,7 +11,24 @@ const getProductList = async (req, res) => {
   return Product.find();
 };
 
+/** Get product Id*/
+const getproductId = async (productId) => {
+  return Product.findById(productId);
+};
+
+/** delete product delete*/
+const deleteProduct = async (productId) => {
+  return Product.findByIdAndDelete(productId);
+};
+
+/** Update product delete*/
+const updateproduct = async (productId) => {
+  return Product.findByIdAndUpdate(productId);
+};
 module.exports = {
   createProduct,
-  getProductList
+  getProductList,
+  getproductId,
+  deleteProduct,
+  updateproduct,
 };

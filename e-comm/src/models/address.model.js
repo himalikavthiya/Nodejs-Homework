@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const addressSchema = new mongoose.Schema(
   {
     user: {
-      type: String,
-      trim: true,
+      type: mongoose.Types.ObjectId,
+      ref: "user",
     },
     street: {
       type: String,

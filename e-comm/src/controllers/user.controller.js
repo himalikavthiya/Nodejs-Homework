@@ -1,4 +1,4 @@
-const { userService,categoryService,productService} = require("../services");
+const { userService, categoryService, productService } = require("../services");
 
 /** create user */
 const createUser = async (req, res) => {
@@ -35,4 +35,47 @@ const getUserList = async (req, res) => {
   }
 };
 
-module.exports = { createUser, getUserList };
+/**Delete user list */
+const deleteUser = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const User = await userService.getUserId(userId);
+    if (!User) {
+      throw new Error("User id not found");
+    }
+    await userService.deleteUser(userId);
+    res.status(200).json({
+      success: true,
+      message: "user delete successfully!",
+    });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
+/**Update User data By id */
+const updateUser = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const UserExi = await userService.getUserId(userId);
+    if (!UserExi) {
+      throw new Error("User data not found");
+    }
+    await userService.updateUser(userId, req.body);
+    res.status(200).json({
+      success: true,
+      message: "User details Update succesfully!",
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+module.exports = {
+  createUser,
+  getUserList,
+  deleteUser,
+  updateUser
+};

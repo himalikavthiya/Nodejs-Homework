@@ -8,6 +8,14 @@ const categorySchema = new mongoose.Schema({
         type: String,
         trim: true
     },
+    modified_at:{
+        type:Date,
+        default:Date.now
+    },
+    created:{
+        type:Date,
+        default:Date.now
+    },
     is_active: {
         type: Boolean,
         default: true

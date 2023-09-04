@@ -6,3 +6,4 @@ module.exports.Cart = require("./cart.model");
 module.exports.UserReview = require("./review.model");
 module.exports.Address = require("./address.model");
 module.exports.Payment = require("./payment.model");
+module.exports.Shipping = require("./shipping.model");

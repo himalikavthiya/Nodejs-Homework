@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const userreviewSchema = new mongoose.Schema(
   {
     user: {
-      type: String,
-      trim: true,
+      type:mongoose.Types.ObjectId,
+      ref: "user"
     },
     product: {
-      type: String,
-      trim: true,
+      type:mongoose.Types.ObjectId,
+      ref: "product"
     },
     rating: {
       type: String,

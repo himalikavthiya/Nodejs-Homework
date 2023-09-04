@@ -10,9 +10,14 @@ router.post("/create-product",
 validate(productValidation.createProduct),
 productController.createProduct);
 
-/* Get user list */
+/* Get product list */
 router.get('/list-product',
 productController.getProductList);
 
+/**delete product List */
+router.delete("/delete-product/:productId", productController.deleteProduct);
+
+/**upadte product List */
+router.put("/update-product/:productId",productController.updateProduct);
 
 module.exports = router;

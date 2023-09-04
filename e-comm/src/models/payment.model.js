@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const paymentSchema = new mongoose.Schema(
   {
     user: {
-      type: String,
-      trim: true,
+      type:mongoose.Types.ObjectId,
+      ref: "user"
     },
     order: {
-      type: String,
-      trim: true,
+      type: mongoose.Types.ObjectId,
+      ref: "order",
     },
     paymentMethod: {
       type: String,

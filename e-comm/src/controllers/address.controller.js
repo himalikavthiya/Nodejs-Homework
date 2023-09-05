@@ -17,9 +17,9 @@ const createAddress = async (req, res) => {
 };
 
 /**get Address List */
-const getAddress = async (req, res) => {
+const getAddress = async (req, res) =>   {
   try {
-    const getAddress = await categoryService.getCategoryList(req, res);
+    const getAddress = await addressService.getAddress(req, res);
 
     res.status(200).json({
       success: true,

@@ -7,7 +7,7 @@ const createOrder = async (reqBody) => {
 
 /**get Order list */
 const getOrderList = async (req, res) => {
-  return Order.find();
+  return Order.find().populate('user');
 };
 
 module.exports = {

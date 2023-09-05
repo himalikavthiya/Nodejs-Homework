@@ -1,14 +1,14 @@
 const { Product } = require("../models");
 
 /** Create Product*/
-
 const createProduct = async (reqBody) => {
   return Product.create(reqBody);
 };
 
 /**get product list */
 const getProductList = async (req, res) => {
-  return Product.find();
+  return await Product.find().populate('category');
+  // return Product.find({$or:[{stock:0}]}).populate('category');
 };
 
 /** Get product Id*/
@@ -25,6 +25,7 @@ const deleteProduct = async (productId) => {
 const updateproduct = async (productId) => {
   return Product.findByIdAndUpdate(productId);
 };
+
 module.exports = {
   createProduct,
   getProductList,

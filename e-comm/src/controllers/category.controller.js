@@ -24,7 +24,7 @@ const getCategoryList = async (req, res) => {
   try {
     const getCategory = await categoryService.getCategoryList(req, res);
     const getUser = await userService.getUserList(req, res);
-    
+
     res.status(200).json({
       success: true,
       message: "Get category list successfully!",
@@ -39,14 +39,32 @@ const getCategoryList = async (req, res) => {
 const deleteCategory = async (req, res) => {
   try {
     const categoryId = req.params.categoryId;
-    const categoryEx = await (categoryId);
+    const categoryEx = await categoryService.getCategoryId(categoryId);
     if (!categoryEx) {
       throw new Error("category data not found");
     }
-
+    await categoryService.deleteCategory(categoryId);
     res.status(200).json({
       success: true,
-      message: "Product deleted",
+      message: "category deleted successfully",
+    });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
+/**update Category List */
+const updateCategory = async (req, res) => {
+  try {
+    const categoryId = req.params.categoryId;
+    const categoryEx = await categoryService.getCategoryId(categoryId);
+    if (!categoryEx) {
+      throw new Error("category data not found");
+    }
+    await categoryService.updateCategory(categoryId);
+    res.status(200).json({
+      success: true,
+      message: "category upadate successfully",
     });
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
@@ -56,4 +74,6 @@ const deleteCategory = async (req, res) => {
 module.exports = {
   createCategory,
   getCategoryList,
+  deleteCategory,
+  updateCategory,
 };

@@ -7,7 +7,7 @@ const createAddress = async (reqBody) => {
 
 /**Get Cart Address */
 const getAddress= async (req, res) => {
-  return Address.find();
+  return Address.find().populate('user');
 };
 module.exports = {
     createAddress,

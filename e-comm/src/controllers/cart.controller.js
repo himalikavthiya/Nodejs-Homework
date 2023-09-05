@@ -1,5 +1,4 @@
-const { cartService } = require("../services");
-
+const { cartService, userService } = require("../services");
 
 /** create Cart */
 const createCart = async (req, res) => {
@@ -10,7 +9,7 @@ const createCart = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Create cart successfully!",
-      data: { cart }
+      data: { cart },
     });
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
@@ -21,12 +20,12 @@ const createCart = async (req, res) => {
 const getCartList = async (req, res) => {
   try {
     const getCart = await cartService.getCartList(req, res);
-    const getUser = await userService.getUserList(req, res);//Multiple service are use
+    const getUser = await userService.getUserList(req, res); //Multiple service are use
 
-      res.status(200).json({
+    res.status(200).json({
       success: true,
       message: "Get Cart and User list successfully!",
-      data: { getCart,getUser },
+      data: { getCart, getUser },
     });
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
@@ -35,5 +34,5 @@ const getCartList = async (req, res) => {
 
 module.exports = {
   createCart,
-  getCartList
+  getCartList,
 };

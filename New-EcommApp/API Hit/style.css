@@ -1,18 +1,103 @@
 /* Define CSS styles for the card */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+* {
+  font-family: 'Montserrat', sans-serif;
+  outline: 0;
+  transition: .3s;
+}
+
 h2{
     text-align: center;
+    font-weight: bolder;
+    color: blueviolet;
+    text-transform: capitalize;
 }
-.card {
+body {
+  display: flex;
+  flex-direction: column;
+}
+.products {
+  float: left;
+  width: 23%;
+  margin: 3% 1%;
+  text-align: center;
+  padding: 10px 0 1% 0;
+  border: 1.7px solid #5d9cca;
+  border-radius: 20px;
+  background-color: #cab7dc1a;
+}
+
+.products img {
+  width: 200px;
+  height: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+@media screen and (max-width: 980px) {
+  .products {
+      width: 30%;
+      text-align: center;
+      margin: 1.66%;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .products {
+      width: 47%;
+      margin: 1% 1%;
+  }
+  #shop {
+      margin: 5% 1%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .products {
+      width: 100%;
+  }
+  #shop {
+      margin: 2% 0;
+  }
+}
+
+#shop::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.product-name{
+  font-weight: bolder;
+}
+.product-price{
+  color:#ff0000;
+}
+.add-to-cart {
+  display: block;
+  margin: 1% auto;
+  border-style: none;
+  width: 10em;
+  height: 3em;
+  background: #4fed7bab;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.add-to-cart:hover {
+  background: #7762ff;
+}
+/* .card {
     width: 300px;
     border: 1px solid #ccc;
-    margin: 10px;
-    padding: 10px;
+    margin: 20px;
+    padding: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #fff;
   }
   .card-image {
     max-width: 100%;
-    height: auto;
+    height: 40%;
   }
 
   .card-title {
@@ -45,3 +130,18 @@ h2{
     font-size: 14px;
     margin: 10px 0;
   }
+  .add-to-cart {    
+    margin: 1% auto;
+    border-style: none;
+    width: 9em;
+    height: 2.5em;
+    background: #62ff8e;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.add-to-cart:hover {
+    background: #7762ff;
+} */
+

@@ -2,12 +2,14 @@ const express = require("express");
 const { cartController } = require("../../controllers");
 const validate = require("../../middlewares/validate");
 const { cartValidation } = require("../../validation");
+const auth = require("../../middlewares/auth");
 
 const router = express.Router();
 
 /**create cart detail */
 router.post(
   "/createCart",
+  auth(),
   validate(cartValidation.createCart),
   cartController.createCart
 );

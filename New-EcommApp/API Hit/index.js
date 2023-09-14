@@ -26,7 +26,7 @@ function renderTable() {
        <p class="product-category">${item.category.category_name}</p>
        <p class="product-subcategory">${item.subcategory.subcategory_name}</p>
        <p class="product-subchildcat">${item.subchildcate.subchildcat_name}</p>
-       <button class="add-to-cart" id='test'>ADD TO CART</button>
+       <button class="add-to-cart">ADD TO CART</button>
    </div>
   `
      )

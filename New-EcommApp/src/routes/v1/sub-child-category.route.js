@@ -2,7 +2,6 @@ const express = require("express");
 const { subChildCateController } = require("../../controllers");
 const validate = require("../../middlewares/validate");
 const { subChildCateValidation } = require("../../validation");
-
 const router = express.Router();
 
 /**create subChildCate */

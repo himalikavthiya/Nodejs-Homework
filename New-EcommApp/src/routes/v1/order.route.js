@@ -13,7 +13,9 @@ router.post(
 );
 
 /**Get Order data List */
-router.get("/listorder", orderController.getOrderList);
+router.get("/listorder",
+auth(),
+orderController.getOrderList);
 
 /**delete Order Id */
 router.delete("/deleteorder/:orderId", orderController.deleteOrder);

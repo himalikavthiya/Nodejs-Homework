@@ -2,12 +2,15 @@ const express = require("express");
 const { productController } = require("../../controllers");
 const validate = require("../../middlewares/validate");
 const { productValidation } = require("../../validation");
+const { upload } = require("../../middlewares/upload");
 
 const router = express.Router();
 
 /**create product */
 router.post(
   "/createproduct",
+  auth(),
+  upload.single("product_img"),
   validate(productValidation.createProduct),
   productController.createProduct
 );

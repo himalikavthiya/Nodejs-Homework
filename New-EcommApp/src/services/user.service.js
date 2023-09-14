@@ -1,28 +1,28 @@
-const { user } = require("../models");
+const { User } = require("../models");
 
 /**create user details */
 const createUser = async (reqbody) => {
-  return user.create(reqbody);
+  return User.create(reqbody);
 };
 
 /**Get user List */
 const getUser = async (req, res) => {
-  return user.find();
+  return User.find();
 };
 
 /* user data by id */
 const getUserId = async (userId) => {
-  return user.findById(userId);
+  return User.findById(userId);
 };
 
 /**Delete user Id */
 const deleteUser = async (userId) => {
-  return user.findByIdAndDelete(userId);
+  return User.findByIdAndDelete(userId);
 };
 
 /**update user detail*/
 const updateUser = async (userId) => {
-  return user.findByIdAndUpdate(userId);
+  return User.findByIdAndUpdate(userId);
 };
 
 module.exports = {

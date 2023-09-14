@@ -9,8 +9,7 @@ const createProduct = {
     price: Joi.number().required(),
     category: Joi.string().required().trim(),
     subcategory: Joi.string().required().trim(),
-    subchildcate: Joi.string().required().trim(),
-
+    subchildcate: Joi.string().required().trim()
   }),
 };
 module.exports = {

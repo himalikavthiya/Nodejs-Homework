@@ -1,13 +1,15 @@
 const express = require("express");
 const { productController } = require("../../controllers");
-const  validate  = require("../../middlewares/validate");
-const { productValidation } = require("../../validations");
+// const  validate  = require("../../middlewares/validate");
+// const { productValidation } = require("../../validations");
+// const {upload}=require('../../middlewares/upload');
 
 const router = express.Router();
 
 /*create product*/
 router.post("/create-product",
-validate(productValidation.createProduct),
+// upload.single("product_image"),
+// validate(productValidation.createProduct),
 productController.createProduct);
 
 /* Get product list */

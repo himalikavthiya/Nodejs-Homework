@@ -6,3 +6,4 @@ module.exports.orderController = require("./order.controller");
 module.exports.cartController = require("./cart.controller");
 module.exports.paymentController = require("./payment.controller");
 module.exports.addressController = require("./address.controller");
+module.exports.galleryController = require("./gallery.controller");

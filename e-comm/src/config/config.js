@@ -1,28 +1,33 @@
 const joi = require("joi");
 const dotenv = require("dotenv");
-dotenv.config();
 
-const envVarsSchema=joi.object({
-    PORT:joi.number().default(4500),
-    MONGODB_URL:joi.string().trim().description("mongodb url")
-    }).unknown();
+dotenv.config({ path: "./.env"});
 
-    const { value:envVars,error} = envVarsSchema
-    .prefs({ errors: { label: "key" } })
-    .validate(process.env);
-    // console.log(envVars);
+const envVarsSchema = joi
+  .object({
+    PORT: joi.number().default(4500),
+    MONGODB_URL: joi.string().trim().description("mongodb url"),
+    BASE_URL: joi.string().trim().description("Base URL"),
+  })
+  .unknown();
 
-    if (error) {
-        console.log("Config Error: ", error);
-    }
+const { value: envVars, error } = envVarsSchema
+  .prefs({ errors: { label: "key" } })
+  .validate(process.env);
+// console.log(envVars);
 
-    module.exports={
-        port:envVars.PORT,
-        mongodb:{
-            url:envVars.MONGODB_URL,
-            options:{
-            useNewUrlParser:true,
-            useUnifiedTopology:true,
-            }
-        }
-    };
+if (error) {
+  console.log("Config Error: ", error);
+}
+
+module.exports = {
+  port: envVars.PORT,
+  mongodb: {
+    url: envVars.MONGODB_URL,
+    options: {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    },
+  },
+  base_url: envVars.BASE_URL
+}

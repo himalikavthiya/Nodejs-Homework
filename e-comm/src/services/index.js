@@ -6,4 +6,5 @@ module.exports.orderService = require("./order.service");
 module.exports.cartService = require("./cart.service");
 module.exports.paymentService = require("./payment.service");
 module.exports.addressService = require("./address.service");
+module.exports.galleryService = require("./gallery.service");
 

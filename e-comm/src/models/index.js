@@ -7,3 +7,4 @@ module.exports.UserReview = require("./review.model");
 module.exports.Address = require("./address.model");
 module.exports.Payment = require("./payment.model");
 module.exports.Shipping = require("./shipping.model");
+module.exports.Gallery = require("./gallery.model");

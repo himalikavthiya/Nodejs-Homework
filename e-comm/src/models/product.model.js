@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema(
       type:mongoose.Types.ObjectId,
       ref: "category"
     },
-    product_img: {
+    product_images: {
       type: String,
     },
     stock: {

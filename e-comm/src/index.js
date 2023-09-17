@@ -5,7 +5,8 @@ const config = require("./config/config");
 const routes = require("./routes/v1");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const path =require("path")
+const path =require("path");
+require('./helpers/crons');
 const app = express(); //use express in app varible
 // app.set('view engine','ejs')
 
@@ -35,6 +36,7 @@ connectDB();
 app.use((req, res, next) => {
   next(new Error("Route not found!"));
 });
+
 
 const server = http.createServer(app);
 

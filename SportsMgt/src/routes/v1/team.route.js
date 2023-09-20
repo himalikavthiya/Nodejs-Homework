@@ -2,11 +2,13 @@ var express = require("express");
 const { teamController } = require("../../controllers/index");
 const validate = require("../../middlewares/validate");
 const { teamValidation } = require("../../validations");
+const auth = require("../../middlewares/auth");
 
 var router = express.Router();
 
 /**Craete team data */
 router.post("/createteams",
+auth(),
 validate(teamValidation.createTeam),
 teamController.createTeam);
 

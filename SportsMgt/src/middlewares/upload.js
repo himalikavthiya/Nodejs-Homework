@@ -1,17 +1,19 @@
 const multer = require("multer");
 const path = require("path");
+const fs = require("fs");
+
 
 //Configuration for Multer
 const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "public");
+    fs.mkdirSync(path.join(__dirname, "../public/images"),{
+      recursive: true,
+    });
+    cb(null, path.join(__dirname, "../public/images"));
   },
   filename: (req, file, cb) => {
     const ext = path.extname(file.originalname);
-    
-    if (ext !== ".png" && ext !== ".jpg" && ext !== ".jpeg") {
-      cb("Only .png, .jpg and .jpeg format are allowed!");
-    }
+
     cb(null, new Date().getTime() + ext);
   },
 });

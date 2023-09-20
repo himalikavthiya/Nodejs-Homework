@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const BASE_URL="http://localhost:8000/";
 const gallerySchema = new mongoose.Schema(
   {
     Images: {
@@ -13,6 +13,13 @@ const gallerySchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+    toJSON: {
+      transform: function (doc, data) {
+        if (data?.Images) {
+          data.Images = `${BASE_URL}images/${data.Images}`;
+        }
+      },
+    },
   }
 );
 

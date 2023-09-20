@@ -2,13 +2,9 @@ const mongoose = require("mongoose");
 
 const foundersSchema = new mongoose.Schema(
   {
-    first_name: {
+    full_name: {
       type: String,
-      trim: true,
-    },
-    last_name: {
-      type: String,
-      trim: true,
+      trim: true
     },
     nationality: {
       type: String,
@@ -17,9 +13,9 @@ const foundersSchema = new mongoose.Schema(
     phone_no: {
       tye: Number,
     },
-    sport_team: {
+    team: {
         type:mongoose.Types.ObjectId,
-        ref:"sport_team"
+        ref:"team"
     },
   },
   {

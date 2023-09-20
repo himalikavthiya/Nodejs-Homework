@@ -1,7 +1,7 @@
 module.exports.Founders = require("./founders.model");
-module.exports.ContactUs = require("./contactus.model");
-module.exports.Sports_Category = require("./sports_category.model");
-module.exports.Sports_Tournaments = require("./sports_tournaments.model");
-module.exports.TeamCount = require("./team_count.model");
-module.exports.Winners = require("./winners.model");
-module.exports.Gellery = require("./sports_gallery.model");
+module.exports.Tournaments = require("./tournaments.model");
+module.exports.Team = require("./team.model");
+module.exports.Players = require("./players.model");
+module.exports.Gellery = require("./gallery.model");
+module.exports.Matches = require("./matches.model");
+module.exports.Match_Result = require("./match_result.model");

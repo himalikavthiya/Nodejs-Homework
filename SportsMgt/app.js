@@ -1,10 +1,14 @@
 var createError = require("http-errors");
 var express = require("express");
+const bodyParser = require("body-parser");
+
 var path = require("path");
 const { connectDB } = require("./src/db/db.connection");
-var Routes = require("./src/routes/v1");
+var routes = require("./src/routes/v1");
 
 var app = express();
+
+app.use(bodyParser.json());
 
 //database connection
 connectDB();
@@ -14,7 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/v1", Routes);
+app.use("/v1", routes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

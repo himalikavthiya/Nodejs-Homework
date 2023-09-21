@@ -8,9 +8,7 @@ var teamRoute = require("./team.route");
 var resultRoute = require("./match_result.route");
 var tokenRoute = require("./token.route");
 
-
 var router = express.Router();
-
 
 /**Create particular routes */
 router.use('/founders',foundersRoute);

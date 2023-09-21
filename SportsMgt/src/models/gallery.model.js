@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const BASE_URL="http://localhost:8000/";
+const config = require("../config/config");
+// const BASE_URL="http://localhost:8000/"
 const gallerySchema = new mongoose.Schema(
   {
     Images: {
@@ -7,8 +8,8 @@ const gallerySchema = new mongoose.Schema(
       trim: true,
     },
     tournamnets: {
-        type:mongoose.Types.ObjectId,
-        ref:"tournamnets"
+      type: mongoose.Types.ObjectId,
+      ref: "tournamnets",
     },
   },
   {
@@ -16,7 +17,7 @@ const gallerySchema = new mongoose.Schema(
     toJSON: {
       transform: function (doc, data) {
         if (data?.Images) {
-          data.Images = `${BASE_URL}images/${data.Images}`;
+          data.Images = `${config.base_url}images/${data.Images}`;
         }
       },
     },

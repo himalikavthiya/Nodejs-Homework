@@ -9,9 +9,6 @@ const createGallery = async (req, res) => {
     } else {
       throw new Error("image is required!");
     }
-    // const newFile = await File.create({
-    //   name: req.file.filename,
-    // });
     const gallery = await galleryService.createGallery(reqBody);
 
     res.status(201).json({
@@ -72,7 +69,7 @@ const updateGallery = async (req, res) => {
 
 module.exports = {
   createGallery,
-    GalleryList,
+  GalleryList,
   updateGallery,
   deleteGallery,
 };

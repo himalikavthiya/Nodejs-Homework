@@ -7,7 +7,15 @@ const createfounder = async (reqBody) => {
 
 /** Get founder list */
 const getfounderList = async (req, res) => {
-  return Founders.find();
+  return Founders.find()
+    .populate({
+      path: "team",
+      select: ["team_name"]
+    })
+    .populate({
+      path: "players",
+      select: ["full_name"]
+    });
 };
 
 /** Get founder details by id*/

@@ -8,7 +8,7 @@ const router = express.Router();
 /** Create jsonwebtoken */
 router.post(
   "/create-token",
-  validate(tokenValidation.generateToken),
+  validate(tokenValidation.generateTokens),
   tokenController.generateToken
 );
 

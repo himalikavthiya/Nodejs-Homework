@@ -7,7 +7,10 @@ const createTeam = async (reqBody) => {
 
   /** Get team list */
 const getTeamList = async (req,res) => {
-    return Team.find()
+    return Team.find().populate({
+      path:"players",
+      select:["full_name"]
+    })
   };
 
   /** Get team details by id*/

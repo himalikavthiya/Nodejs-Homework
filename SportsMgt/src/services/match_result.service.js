@@ -7,7 +7,10 @@ const createMatch_result = async (reqBody) => {
 
 /** Get match_result list */
 const getMatch_resultList = async (req, res) => {
-  return Match_Result.find();
+  return Match_Result.find().populate({
+    path:"matches",
+    select:["match_date"]
+  })
 };
 
 /** Get match_result details by id*/

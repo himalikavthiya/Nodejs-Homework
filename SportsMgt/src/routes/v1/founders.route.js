@@ -1,4 +1,4 @@
-var express = require("express");
+const express = require("express");
 const { foundersController } = require("../../controllers");
 const { foundersValidation } = require("../../validations");
 const validate = require("../../middlewares/validate");

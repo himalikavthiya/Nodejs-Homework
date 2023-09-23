@@ -1,12 +1,12 @@
-var express = require('express');
-var foundersRoute = require("./founders.route");
-var tournamentsRoute = require("./tournaments.route");
-var gelleryRoute = require("./gallery.route");
-var matchesRoute = require("./matches.route");
-var playersRoute = require("./players.route");
-var teamRoute = require("./team.route");
-var resultRoute = require("./match_result.route");
-var tokenRoute = require("./token.route");
+const express = require('express');
+const foundersRoute = require("./founders.route");
+const tournamentsRoute = require("./tournaments.route");
+const gelleryRoute = require("./gallery.route");
+const matchesRoute = require("./matches.route");
+const playersRoute = require("./players.route");
+const teamRoute = require("./team.route");
+const resultRoute = require("./match_result.route");
+const tokenRoute = require("./token.route");
 
 var router = express.Router();
 

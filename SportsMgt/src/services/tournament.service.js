@@ -17,7 +17,7 @@ const getTournamentById = async (tournamentId) => {
 
 /** tournament details update by id */
 const getTournamentByName = async (tur_name) => {
-    return Tournaments.findOne({ tur_name });
+    return Tournaments.findOne({ tur_name }).populate("match_result");
   };
 
 /** tournament details update by id */

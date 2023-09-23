@@ -7,7 +7,10 @@ const createGallery = async (reqBody) => {
 
 /** Get gallery list */
 const getGalleryList = async (req, res) => {
-  return Gellery.find();
+  return Gellery.find().populate({
+    path:"tournamnets",
+    select:["tur_name"]
+  });
 };
 
 /** Get gallery details by id*/

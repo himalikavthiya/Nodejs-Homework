@@ -6,8 +6,8 @@ const api_url = "http://localhost:8000/v1/gellery/gallerylist";
 fetch(api_url)
   .then((response) => response.json())
   .then((apiData) => {
-    localStorage.setItem("data", JSON.stringify(apiData));
-    console.log(api_url);
+    localStorage.setItem("data", JSON.stringify(apiData.data));
+    console.log(apiData.data);
     renderData();
   })
   .catch((error) => console.log(error));

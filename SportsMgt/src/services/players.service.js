@@ -8,7 +8,7 @@ const createPlayers = async (reqBody) => {
 
   /** Get players list */
 const getPlayersList = async (req,res) => {
-    return Players.find()
+    return Players.find().count();
   };
 
   /** Get players details by id*/

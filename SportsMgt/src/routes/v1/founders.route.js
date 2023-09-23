@@ -3,7 +3,7 @@ const { foundersController } = require("../../controllers");
 const { foundersValidation } = require("../../validations");
 const validate = require("../../middlewares/validate");
 
-var router = express.Router();
+const router = express.Router();
 
 /**Craete founder data */
 router.post("/createfounders",

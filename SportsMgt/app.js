@@ -11,6 +11,11 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+
+/**frantend error handle useing cors */
+app.use(cors());
+app.options("*", cors());
+
 app.use(express.static(path.join(__dirname, `./src/public`)));
 
 app.use("/v1", routes);
@@ -23,8 +28,6 @@ app.use(function (req, res, next) {
 /*Database connection*/
 connectDB();
 
-/**frantend error handle useing cors */
-app.use(cors());
 
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));

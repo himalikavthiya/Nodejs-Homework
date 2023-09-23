@@ -1,10 +1,10 @@
-var express = require("express");
+const express = require("express");
 const { teamController } = require("../../controllers/index");
 const validate = require("../../middlewares/validate");
 const { teamValidation } = require("../../validations");
 const auth = require("../../middlewares/auth");
 
-var router = express.Router();
+const router = express.Router();
 
 /**Craete team data */
 router.post("/createteams",

@@ -1,9 +1,9 @@
-var express = require("express");
+const express = require("express");
 const { tournamentsController } = require("../../controllers");
 const { tournamentValidation } = require("../../validations");
 const validate = require("../../middlewares/validate");
 
-var router = express.Router();
+const router = express.Router();
 
 /**Craete tournaments data */
 router.post("/create-tournaments",

@@ -1,9 +1,9 @@
-var express = require("express");
+const express = require("express");
 const { matchresultController } = require("../../controllers");
 const { matchResultValidation } = require("../../validations");
 const validate = require("../../middlewares/validate");
 
-var router = express.Router();
+const router = express.Router();
 
 /**Craete match_result data */
 router.post("/create-match_result",

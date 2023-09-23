@@ -1,8 +1,8 @@
-var express = require("express");
+const express = require("express");
 const { galleryController } = require("../../controllers");
 const { upload } = require("../../middlewares/upload");
 
-var router = express.Router();
+const router = express.Router();
 
 /**Craete gallerys data */
 router.post("/creategallery",

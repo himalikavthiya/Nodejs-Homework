@@ -1,9 +1,9 @@
-var express = require("express");
+const express = require("express");
 const { playersController } = require("../../controllers");
 const validate = require("../../middlewares/validate");
 const { playersValidation } = require("../../validations");
 
-var router = express.Router();
+const router = express.Router();
 
 /**Craete players data */
 router.post("/createplayer",

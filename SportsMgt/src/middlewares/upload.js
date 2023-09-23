@@ -15,6 +15,9 @@ const multerStorage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const ext = path.extname(file.originalname);
+    if (ext !== ".png" && ext !== ".jpg" && ext !== ".jpeg") {
+      cb("Only .png, .jpg and .jpeg format are allowed!");
+    }
     cb(null, new Date().getTime() + ext);
   },
 });

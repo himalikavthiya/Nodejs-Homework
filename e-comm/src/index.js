@@ -6,7 +6,7 @@ const routes = require("./routes/v1");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path =require("path");
-require('./helpers/crons');
+// require('./helpers/crons');
 const app = express(); //use express in app varible
 // app.set('view engine','ejs')
 

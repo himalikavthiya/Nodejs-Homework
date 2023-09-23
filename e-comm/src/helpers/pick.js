@@ -10,6 +10,7 @@ const pick = (object, keys) => {
         // eslint-disable-next-line no-param-reassign
         obj[key] = object[key];
       }
+      console.log("++++obj pick+++++",obj)
       return obj;
     }, {});
   };
